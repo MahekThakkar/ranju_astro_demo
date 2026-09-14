@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Astrolabe Element</title>
+    <style>
+     
+
+        /* Container designed to fit gracefully within any column (like col-6) */
+        .astrolabe-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace; /* Tech/Calculation feel */
+            background-color: transparent;
+            overflow: hidden;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .astrolabe-container {
+            position: relative;
+            width: 360px;
+            height: 360px;
+            max-width: 100%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        /* Outer Zodiac Ring */
+        .ring-outer {
+            width: 100%;
+            height: 100%;
+            border-style: dashed;
+            animation: spin-clockwise 40s linear infinite;
+            box-shadow: 0 0 40px inset rgba(0, 240, 255, 0.2);
+        }
+
+        /* Inner Numerology Ring */
+        .ring-inner {
+            width: 65%;
+            height: 65%;
+            border: 2px solid rgba(226, 183, 20, 0.3);
+            animation: spin-counter-clockwise 30s linear infinite;
+            box-shadow: 0 0 20px rgba(226, 183, 20, 0.1);
+        }
+
+        .node {
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            margin-top: -18px;
+            margin-left: -18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a24;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            z-index: 10;
+        }
+
+        /* Keep nodes upright while their parent ring rotates */
+        .node-zodiac {
+            color: #00f0ff;
+            animation: counter-spin-clockwise 40s linear infinite;
+        }
+
+        .node-number {
+            color: #e2b714;
+            font-family: sans-serif;
+            animation: counter-spin-counter-clockwise 30s linear infinite;
+            border-color: rgba(226, 183, 20, 0.4);
+        }
+
+        .node:hover {
+            transform: scale(1.4);
+            z-index: 20;
+            box-shadow: 0 0 15px currentColor;
+            border-color: currentColor;
+            background: #000;
+        }
+
+        .center-core {
+            position: absolute;
+            width: 45%;
+            height: 45%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,240,255,0.1) 0%, rgba(26,26,36,1) 70%);
+            border: 2px solid #00f0ff;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+            overflow: hidden;
+        }
+
+        /* Radar sweep effect */
+        .center-core::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(from 0deg, transparent 70%, rgba(0, 240, 255, 0.4) 100%);
+            transform-origin: 0 0;
+            animation: spin-clockwise 4s linear infinite;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .readout-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #888;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            z-index: 2;
+        }
+
+        .readout-value {
+            font-size: 1.8rem;
+            color: #fff;
+            text-shadow: 0 0 8px #00f0ff;
+            margin: 0;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+
+        .readout-desc {
+            font-size: 0.65rem;
+            color: #ccc;
+            margin-top: 5px;
+            line-height: 1.2;
+            z-index: 2;
+            font-family: sans-serif;
+            max-width: 90%;
+        }
+
+        @keyframes spin-clockwise {
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spin-counter-clockwise {
+            100% { transform: rotate(-360deg); }
+        }
+        @keyframes counter-spin-clockwise {
+            100% { transform: rotate(-360deg); }
+        }
+        @keyframes counter-spin-counter-clockwise {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Pause rings on hover */
+        .astrolabe-container.paused .ring-outer,
+        .astrolabe-container.paused .ring-inner,
+        .astrolabe-container.paused .node-zodiac,
+        .astrolabe-container.paused .node-number,
+        .astrolabe-container.paused .center-core::before {
+            animation-play-state: paused !important;
+        }
+
+        /* Connecting laser line canvas */
+        #laserCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+        }
+    </style>
+</head>
+<body style="background-color: #0f0f15; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+
+    <!-- COPY THIS WRAPPER INTO YOUR col-6 -->
+    <div class="astrolabe-wrapper">
+        <div class="astrolabe-container" id="astroContainer">
+            
+            <canvas id="laserCanvas"></canvas>
+
+            <div class="ring ring-outer" id="zodiacRing">
+                <!-- Zodiac signs injected by JS -->
+            </div>
+
+            <div class="ring ring-inner" id="numberRing">
+                <!-- Numbers injected by JS -->
+            </div>
+
+            <div class="center-core">
+                <div class="readout-title" id="readoutTitle">Aligning</div>
+                <div class="readout-value" id="readoutValue">...</div>
+                <div class="readout-desc" id="readoutDesc">Analyzing cosmic and numerical vibrations.</div>
+            </div>
+
+        </div>
+    </div>
+    <!-- END COPY -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const zodiacData = [
+                { symbol: '♈', name: 'Aries', color: '#ff4d4d', desc: 'The Pioneer. Element: Fire.' },
+                { symbol: '♉', name: 'Taurus', color: '#4caf50', desc: 'The Builder. Element: Earth.' },
+                { symbol: '♊', name: 'Gemini', color: '#ffd54f', desc: 'The Communicator. Element: Air.' },
+                { symbol: '♋', name: 'Cancer', color: '#64b5f6', desc: 'The Nurturer. Element: Water.' },
+                { symbol: '♌', name: 'Leo', color: '#ff9800', desc: 'The Leader. Element: Fire.' },
+                { symbol: '♍', name: 'Virgo', color: '#81c784', desc: 'The Analyst. Element: Earth.' },
+                { symbol: '♎', name: 'Libra', color: '#fff176', desc: 'The Diplomat. Element: Air.' },
+                { symbol: '♏', name: 'Scorpio', color: '#ba68c8', desc: 'The Transformer. Element: Water.' },
+                { symbol: '♐', name: 'Sagittarius', color: '#ff8a65', desc: 'The Explorer. Element: Fire.' },
+                { symbol: '♑', name: 'Capricorn', color: '#a1887f', desc: 'The Achiever. Element: Earth.' },
+                { symbol: '♒', name: 'Aquarius', color: '#4dd0e1', desc: 'The Visionary. Element: Air.' },
+                { symbol: '♓', name: 'Pisces', color: '#90caf9', desc: 'The Dreamer. Element: Water.' }
+            ];
+
+            const numerologyData = [
+                { num: '1', name: 'One', desc: 'Independence, Innovation, Leadership.' },
+                { num: '2', name: 'Two', desc: 'Harmony, Partnership, Intuition.' },
+                { num: '3', name: 'Three', desc: 'Creativity, Expression, Joy.' },
+                { num: '4', name: 'Four', desc: 'Structure, Stability, Foundation.' },
+                { num: '5', name: 'Five', desc: 'Freedom, Change, Adventure.' },
+                { num: '6', name: 'Six', desc: 'Nurturing, Healing, Responsibility.' },
+                { num: '7', name: 'Seven', desc: 'Analysis, Spirituality, Wisdom.' },
+                { num: '8', name: 'Eight', desc: 'Abundance, Power, Karma.' },
+                { num: '9', name: 'Nine', desc: 'Humanitarianism, Completion.' },
+                { num: '11', name: 'Eleven', desc: 'Master Number: Illumination.' },
+                { num: '22', name: 'Twenty-Two', desc: 'Master Number: Master Builder.' },
+                { num: '33', name: 'Thirty-Three', desc: 'Master Number: Master Teacher.' }
+            ];
+
+            const zodiacRing = document.getElementById('zodiacRing');
+            const numberRing = document.getElementById('numberRing');
+            const container = document.getElementById('astroContainer');
+            const rTitle = document.getElementById('readoutTitle');
+            const rValue = document.getElementById('readoutValue');
+            const rDesc = document.getElementById('readoutDesc');
+            const canvas = document.getElementById('laserCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            let autoCycleInterval;
+            let isHovering = false;
+
+            function resizeCanvas() {
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            function drawLineToCenter(nodeEl, color) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Get container rect to calculate relative center
+                const containerRect = container.getBoundingClientRect();
+                const centerX = containerRect.width / 2;
+                const centerY = containerRect.height / 2;
+
+                // Get node rect to calculate its current absolute center
+                const nodeRect = nodeEl.getBoundingClientRect();
+                const nodeX = nodeRect.left - containerRect.left + (nodeRect.width / 2);
+                const nodeY = nodeRect.top - containerRect.top + (nodeRect.height / 2);
+
+                ctx.beginPath();
+                ctx.moveTo(nodeX, nodeY);
+                ctx.lineTo(centerX, centerY);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]); // Dashed laser line
+                ctx.stroke();
+
+                // Draw glowing dot at node connection point
+                ctx.beginPath();
+                ctx.arc(nodeX, nodeY, 4, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+            }
+
+            function clearLine() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            function generateNodes(data, parentElement, radiusPct, cssClass, isCounterClockwise) {
+                const count = data.length;
+                data.forEach((item, index) => {
+                    const angle = (index * (360 / count) - 90) * (Math.PI / 180);
+                    // Use percentages for positioning so it scales with container
+                    const x = 50 + (radiusPct * Math.cos(angle));
+                    const y = 50 + (radiusPct * Math.sin(angle));
+
+                    const node = document.createElement('div');
+                    node.className = `node ${cssClass}`;
+                    node.innerHTML = item.symbol || item.num;
+                    node.style.left = `${x}%`;
+                    node.style.top = `${y}%`;
+
+                    if (item.color) {
+                        node.style.setProperty('#00f0ff', item.color); // override for zodiac
+                    }
+
+                    // Hover Events
+                    node.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        container.classList.add('paused');
+                        clearInterval(autoCycleInterval);
+
+                        const displayColor = item.color || '#e2b714';
+                        
+                        rTitle.textContent = item.symbol ? 'Zodiac Sign' : 'Numerology';
+                        rValue.textContent = item.name;
+                        rValue.style.color = displayColor;
+                        rValue.style.textShadow = `0 0 10px ${displayColor}`;
+                        rDesc.textContent = item.desc;
+
+                        // Animation frame delay ensures DOM bounds are updated before drawing
+                        requestAnimationFrame(() => {
+                            drawLineToCenter(node, displayColor);
+                        });
+                    });
+
+                    node.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        container.classList.remove('paused');
+                        clearLine();
+                        rValue.style.color = '#fff';
+                        rValue.style.textShadow = '0 0 8px #00f0ff';
+                        startAutoCycle();
+                    });
+
+                    parentElement.appendChild(node);
+                });
+            }
+
+            // Outer ring radius is ~50%, but we use 50 inside the 100% container calculation
+            generateNodes(zodiacData, zodiacRing, 50, 'node-zodiac');
+            // Inner ring is 65% of the outer, so radius is ~32.5% relative to the main container
+            generateNodes(numerologyData, numberRing, 50, 'node-number'); 
+
+            function updateCenterRandomly() {
+                if(isHovering) return;
+
+                const useZodiac = Math.random() > 0.5;
+                let data, type, color;
+
+                if(useZodiac) {
+                    const idx = Math.floor(Math.random() * zodiacData.length);
+                    data = zodiacData[idx];
+                    type = "Calculating Aspect";
+                    color = data.color;
+                    rValue.innerHTML = `${data.symbol} ${data.name}`;
+                } else {
+                    const idx = Math.floor(Math.random() * numerologyData.length);
+                    data = numerologyData[idx];
+                    type = "Path Vibration";
+                    color = '#e2b714';
+                    rValue.innerHTML = `${data.num} : ${data.name}`;
+                }
+
+                rTitle.textContent = type;
+                rValue.style.color = color;
+                rValue.style.textShadow = `0 0 8px ${color}`;
+                rDesc.textContent = data.desc;
+            }
+
+            function startAutoCycle() {
+                // Initial update
+                updateCenterRandomly();
+                // Cycle every 3 seconds to simulate computing data
+                autoCycleInterval = setInterval(updateCenterRandomly, 3000);
+            }
+
+            startAutoCycle();
+        });
+    </script>
+</body>
+</html>

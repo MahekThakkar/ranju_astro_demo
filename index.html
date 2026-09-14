@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranju Singhal — Vedic Astrology &amp; Numerology</title>
+  <meta name="description"
+    content="Ranju Singhal offers Vedic astrology, numerology consultations — birth chart readings, marriage matching, career guidance and personalised remedies.">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNav">
+    <div class="container">
+      <a class="navbar-brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <!-- <svg width="30" height="30" viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <path d="M20 4 A16 16 0 0 0 20 36 A11 11 0 0 1 20 4Z" fill="currentColor" />
+          </svg> -->
+          <img src="logo.png" alt="" width="90px">
+        </span>
+        <span class="brand-text">Ranju Singhal</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Words from clients</a></li>
+          <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-book" href="#contact">Book a reading</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+
+    <video autoplay muted loop id="myVideo">
+
+      <source src="planets.mp4" type="video/mp4">
+
+
+    </video>
+
+
+    <style>
+      #myVideo {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+    </style>
+
+    <div class="container" style="position: relative;">
+
+
+      <div class="row align-items-center gy-5 glass"
+        style="background: #11113794; background-repeat: no-repeat; background-position: center; background-size: cover;">
+        <div class="col-lg-6 order-2 order-lg-1">
+          <p class="kicker">Vedic astrology &amp; numerology, since 2003</p>
+          <h1 class="hero-title">The sky keeps a record.<br>Ranju reads it with you.</h1>
+          <p class="hero-sub">For over two decades, I have helped people in Jaipur and around the world make
+            sense of timing, relationships and choices — through Vedic birth charts and numerology, explained in
+            plain language rather than riddles.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-book btn-lg">Book a reading</a>
+            <a href="#services" class="btn btn-ghost btn-lg">See what I offer</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <span class="stat-num">22</span>
+              <span class="stat-label">years in practice</span>
+            </div>
+            <div>
+              <span class="stat-num">14,000+</span>
+              <span class="stat-label">charts read</span>
+            </div>
+            <div>
+              <span class="stat-num">6</span>
+              <span class="stat-label">International Clients</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <div class="wheel-wrap">
+            <!-- <svg class="chart-wheel" viewBox="0 0 480 480" role="img"
+              aria-label="A twelve-house Vedic birth chart wheel">
+              <g class="wheel-spin">
+                <circle cx="240" cy="240" r="200" class="ring-outer" />
+                <circle cx="240" cy="240" r="145" class="ring-mid" />
+                <circle cx="240" cy="240" r="60" class="ring-inner" />
+                <g class="spokes"></g>
+                <g class="ticks"></g>
+              </g>
+              <g class="glyphs"></g>
+              <circle cx="240" cy="240" r="4" class="center-dot" />
+            </svg> -->
+            <img src="ranju_singhal.png" alt="" style="width: 100%;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="row gy-5 align-items-center">
+        <div class="col-lg-6">
+
+          <!-- <img src="ranju_singhal.png" alt="" style="width: 100%;"> -->
+          <div class="astrolabe-wrapper">
+            <div class="astrolabe-container" id="astroContainer">
+
+              <canvas id="laserCanvas"></canvas>
+
+              <div class="ring ring-outer" id="zodiacRing">
+                <!-- Zodiac signs injected by JS -->
+              </div>
+
+              <div class="ring ring-inner" id="numberRing">
+                <!-- Numbers injected by JS -->
+              </div>
+
+              <div class="center-core">
+                <div class="readout-title" id="readoutTitle">Aligning</div>
+                <div class="readout-value" id="readoutValue">...</div>
+                <div class="readout-desc" id="readoutDesc">Analyzing cosmic and numerical vibrations.</div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-6">
+          <p class="kicker">About Ranju</p>
+          <h2 class="section-title">Guidance rooted in the old texts, spoken in today's language</h2>
+          <p class="lede">I began my journey in Jyotish through structured study and professional training in Vedic
+            astrology and numerology in Jaipur. Over the years, I have read birth charts for families making decisions
+            about marriage, career, health and property — always combining astrological insights with the practical
+            questions people actually bring in with them.
+          </p>
+          <!-- <p class="lede">Her sessions run in Hindi or English, in person at her Jaipur practice or over video call for
+            clients further away. She keeps every reading grounded in the chart in front of her rather than general
+            predictions, and follows up in writing so nothing said in the room gets lost.</p> -->
+          <ul class="credential-list">
+            <!-- <li><i class="bi bi-award"></i>
+              <div><strong>Jyotish Acharya</strong><span>Bharatiya Vidya Bhavan, Jaipur</span></div>
+            </li> -->
+            <li><i class="bi bi-mortarboard"></i>
+              <div><strong>Certified Numerologist</strong><span>Indian Council of Astrological Sciences</span></div>
+            </li>
+            <!-- <li><i class="bi bi-translate"></i>
+              <div><strong>Hindi, English, Punjabi</strong><span>consultations in all three</span></div>
+            </li>
+            <li><i class="bi bi-people"></i>
+              <div><strong>14,000+ consultations</strong><span>since 2003</span></div>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <p class="kicker">What she offers</p>
+          <h2 class="section-title">Four ways to find the guidance you’re looking for</h2>
+        </div>
+      </div>
+
+      <div class="service-list">
+
+        <div class="service-row">
+          <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
+          <div class="service-body">
+            <h3>Vedic Birth Chart Reading</h3>
+            <p>A full reading of your Janam Kundli — planetary positions, current dasha period and the houses that
+              matter most for the question you bring, whether that's timing, health or general direction.</p>
+          </div>
+          <div class="service-meta">
+
+            <img src="kundli_reading.jpeg" style="width: 300px;" alt="">
+
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon"><i class="bi bi-123"></i></div>
+          <div class="service-body">
+            <h3>Numerology Consultation</h3>
+            <p>Your life path, expression and destiny numbers, drawn from your birth date and name — used to understand
+              recurring patterns and to choose favourable dates for weddings, launches or travel.</p>
+          </div>
+          <div class="service-meta">
+            <img src="numerology.jpg" width="300px" alt="">
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-icon"><i class="bi bi-heart"></i></div>
+          <div class="service-body">
+            <h3>Marriage Compatibility (Kundli Milan)</h3>
+            <p>Guna Milan scoring across both charts, plus a plain-language walk-through of where the match is strong
+              and where a bit of care will help — for families weighing a proposal.</p>
+          </div>
+          <div class="service-meta">
+            <img src="kundli_milan.png" style="width: 300px;" alt="">
+          </div>
+        </div>
+
+        <!-- <div class="service-row">
+          <div class="service-icon"><i class="bi bi-hand-index-thumb"></i></div>
+          <div class="service-body">
+            <h3>Palm Reading</h3>
+            <p>A traditional Hast Rekha reading of the major and minor lines, mounts and finger length — usually done
+              alongside a birth chart reading for a fuller picture, but also offered on its own.</p>
+          </div>
+          <div class="service-meta">In person only · 30 min</div>
+        </div> -->
+
+        <!-- <div class="service-row">
+          <div class="service-icon"><i class="bi bi-compass"></i></div>
+          <div class="service-body">
+            <h3>Vastu Shastra Consultation</h3>
+            <p>A room-by-room review of a home or office against Vastu principles, with a short list of practical,
+              low-cost changes — not a demand to rebuild.</p>
+          </div>
+          <div class="service-meta">Site visit or floor plan · 90 min</div>
+        </div> -->
+
+        <div class="service-row">
+          <div class="service-icon"><i class="bi bi-briefcase"></i></div>
+          <div class="service-body">
+            <h3>Career &amp; Business Astrology</h3>
+            <p>A focused look at the second, sixth, tenth and eleventh houses to weigh a job change, a new venture, or
+              the right time to make either move.</p>
+          </div>
+          <div class="service-meta">
+            <img src="career.jpeg" width="300px" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section process" id="process">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <p class="kicker">How a reading works</p>
+          <h2 class="section-title">Four steps from booking to remedy</h2>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Share your details</h3>
+          <p>Send your date, time and place of birth through the booking form — accuracy here matters more than anything
+            else in the reading.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Chart preparation</h3>
+          <p>Ranju casts your Kundli and reviews it before the session, so your appointment time is spent talking, not
+            calculating.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>The reading itself</h3>
+          <p>A one-on-one conversation, in person or over video, working through your chart against the questions you
+            came in with.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Notes and remedies</h3>
+          <p>A written summary follows within three days, along with any suggested remedies — a gemstone, a mantra, or
+            simply a date to keep in mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <p class="kicker">Words from clients</p>
+      <h2 class="section-title">What people say after a session</h2>
+
+      <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel"
+        data-bs-interval="7000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <blockquote>
+              <p>Ranju ji explained our daughter's chart without any of the fear-mongering we'd heard from other
+                astrologers before. She was specific about timing and calm about the rest.</p>
+              <footer>Meera K. — Gurgaon</footer>
+            </blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote>
+              <p>We asked for a Kundli Milan before our engagement. The session was thorough and she was honest about
+                the one area that needed attention, with a simple remedy rather than a reason to worry.</p>
+              <footer>Arjun &amp; Priya S. — Jaipur</footer>
+            </blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote>
+              <p>I'd never taken numerology seriously until a friend insisted. Ranju's reading of my name and birth
+                number matched patterns in my career I hadn't put into words myself.</p>
+              <footer>Farhan A. — Mumbai (video consultation)</footer>
+            </blockquote>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-arrow"><i class="bi bi-arrow-left"></i></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-arrow"><i class="bi bi-arrow-right"></i></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Testimonial 1"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+            aria-label="Testimonial 2"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+            aria-label="Testimonial 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PACKAGES ================= -->
+  <section class="section packages" id="packages">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <p class="kicker">Packages</p>
+          <h2 class="section-title">Straightforward pricing, no hidden add-ons</h2>
+        </div>
+      </div>
+
+      <div class="table-responsive package-table-wrap">
+        <table class="table package-table align-middle">
+          <thead>
+            <tr>
+              <th scope="col">Package</th>
+              <th scope="col">Includes</th>
+              <!-- <th scope="col">Duration</th> -->
+              <th scope="col">Fee</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Birth Chart Reading</td>
+              <td>Full Kundli reading + written summary</td>
+              <!-- <td>75 min</td> -->
+              <td>₹2,500</td>
+              <td><a href="#contact" class="link-book">Book <i class="bi bi-arrow-up-right"></i></a></td>
+            </tr>
+            <tr>
+              <td>Numerology Session</td>
+              <td>Core numbers + favourable dates</td>
+              <!-- <td>45 min</td> -->
+              <td>₹1,800</td>
+              <td><a href="#contact" class="link-book">Book <i class="bi bi-arrow-up-right"></i></a></td>
+            </tr>
+            <tr>
+              <td>Kundli Milan (Matching)</td>
+              <td>Guna Milan for two charts + summary</td>
+              <!-- <td>60 min</td> -->
+              <td>₹3,200</td>
+              <td><a href="#contact" class="link-book">Book <i class="bi bi-arrow-up-right"></i></a></td>
+            </tr>
+            <tr>
+              <td>Complete Consultation</td>
+              <td>Chart + numerology</td>
+              <!-- <td>2.5 hrs</td> -->
+              <td>₹6,000</td>
+              <td><a href="#contact" class="link-book">Book <i class="bi bi-arrow-up-right"></i></a></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <p class="package-note">Video consultations are priced the same as in-person sessions. Travel outside Jaipur is
+        billed separately.</p>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-5">
+          <p class="kicker">Get in touch</p>
+          <h2 class="section-title">Book a reading with Ranju</h2>
+          <p class="lede">Fill in your details and Ranju's team will confirm your appointment within one working day.
+            For matching or family readings, add each person's birth details in the message field.</p>
+
+          <ul class="contact-info">
+            <li><i class="bi bi-geo-alt"></i><span>Ranju Singhal Astrology & Numerology, Greater Kailash I, New Jaipur
+                110048</span></li>
+            <li><i class="bi bi-telephone"></i><span>+91 7568075089</span></li>
+            <li><i class="bi bi-envelope"></i><span>ranjusinghal@gmail.com</span></li>
+            <li><i class="bi bi-clock"></i><span>Monday–Saturday, 11am–7pm IST · closed Sundays</span></li>
+          </ul>
+
+          <!-- <div class="social-row">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://wa.me/917568075089" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div> -->
+        </div>
+
+        <div class="col-lg-7">
+          <form class="booking-form needs-validation" id="bookingForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="fullName" class="form-label">Full name</label>
+                <input type="text" class="form-control" id="fullName" required>
+                <div class="invalid-feedback">Please tell us your name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone number</label>
+                <input type="tel" class="form-control" id="phone" required>
+                <div class="invalid-feedback">Please add a phone number.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="service" class="form-label">Which reading?</label>
+                <select class="form-select" id="service" required>
+                  <option value="" selected disabled>Choose one</option>
+                  <option>Vedic Birth Chart Reading</option>
+                  <option>Numerology Consultation</option>
+                  <option>Marriage Compatibility (Kundli Milan)</option>
+                  <!-- <option>Palm Reading</option> -->
+                  <!-- <option>Vastu Shastra Consultation</option> -->
+                  <option>Career &amp; Business Astrology</option>
+                </select>
+                <div class="invalid-feedback">Please choose a reading.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="dob" class="form-label">Date of birth</label>
+                <input type="date" class="form-control" id="dob" required>
+                <div class="invalid-feedback">Required for chart preparation.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="tob" class="form-label">Time of birth</label>
+                <input type="time" class="form-control" id="tob" required>
+              </div>
+              <div class="col-md-4">
+                <label for="pob" class="form-label">Place of birth</label>
+                <input type="text" class="form-control" id="pob" placeholder="City, State" required>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Anything Ranju should know</label>
+                <textarea class="form-control" id="message" rows="4"
+                  placeholder="Your question, or details for anyone else being matched"></textarea>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-book btn-lg" type="submit">Request appointment</button>
+                <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4 align-items-start">
+        <div class="col-lg-4">
+          <a class="navbar-brand" href="#top">
+            <span class="brand-mark" aria-hidden="true">
+              <!-- <svg width="26" height="26" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2" />
+                <path d="M20 4 A16 16 0 0 0 20 36 A11 11 0 0 1 20 4Z" fill="currentColor" />
+              </svg> -->
+              <img src="logo.png" alt="" width="200">
+            </span>
+            <span class="brand-text">Ranju Singhal</span>
+          </a>
+          <p class="footer-note">Vedic astrology, numerology consultations in Jaipur and by video,
+            worldwide.</p>
+        </div>
+        <div class="col-lg-4">
+          <h4>On this page</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4>Reach us</h4>
+          <ul class="footer-links">
+            <li>+91 7568075089/li>
+            <li>ranjusinghal@gmail.com</li>
+            <li>Greater Kailash I, New Jaipur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Ranju Singhal. All rights reserved.</span>
+        <span>Made By <strong><a href="http://thelogiclogin.com" target="_blank">The Logic Login</a></strong></span>
+      </div>
+    </div>
+
+    <a href="https://wa.me/917568075089" target="_blank" class="btn-whatsapp-pulse">
+      <i class="fa fa-whatsapp"></i>
+    </a>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const zodiacData = [
+        { symbol: '♈', name: 'Aries', color: '#ff4d4d', desc: 'The Pioneer. Element: Fire.' },
+        { symbol: '♉', name: 'Taurus', color: '#4caf50', desc: 'The Builder. Element: Earth.' },
+        { symbol: '♊', name: 'Gemini', color: '#ffd54f', desc: 'The Communicator. Element: Air.' },
+        { symbol: '♋', name: 'Cancer', color: '#64b5f6', desc: 'The Nurturer. Element: Water.' },
+        { symbol: '♌', name: 'Leo', color: '#ff9800', desc: 'The Leader. Element: Fire.' },
+        { symbol: '♍', name: 'Virgo', color: '#81c784', desc: 'The Analyst. Element: Earth.' },
+        { symbol: '♎', name: 'Libra', color: '#fff176', desc: 'The Diplomat. Element: Air.' },
+        { symbol: '♏', name: 'Scorpio', color: '#ba68c8', desc: 'The Transformer. Element: Water.' },
+        { symbol: '♐', name: 'Sagittarius', color: '#ff8a65', desc: 'The Explorer. Element: Fire.' },
+        { symbol: '♑', name: 'Capricorn', color: '#a1887f', desc: 'The Achiever. Element: Earth.' },
+        { symbol: '♒', name: 'Aquarius', color: '#4dd0e1', desc: 'The Visionary. Element: Air.' },
+        { symbol: '♓', name: 'Pisces', color: '#90caf9', desc: 'The Dreamer. Element: Water.' }
+      ];
+
+      const numerologyData = [
+        { num: '1', name: 'One', desc: 'Independence, Innovation, Leadership.' },
+        { num: '2', name: 'Two', desc: 'Harmony, Partnership, Intuition.' },
+        { num: '3', name: 'Three', desc: 'Creativity, Expression, Joy.' },
+        { num: '4', name: 'Four', desc: 'Structure, Stability, Foundation.' },
+        { num: '5', name: 'Five', desc: 'Freedom, Change, Adventure.' },
+        { num: '6', name: 'Six', desc: 'Nurturing, Healing, Responsibility.' },
+        { num: '7', name: 'Seven', desc: 'Analysis, Spirituality, Wisdom.' },
+        { num: '8', name: 'Eight', desc: 'Abundance, Power, Karma.' },
+        { num: '9', name: 'Nine', desc: 'Humanitarianism, Completion.' },
+        { num: '11', name: 'Eleven', desc: 'Master Number: Illumination.' },
+        { num: '22', name: 'Twenty-Two', desc: 'Master Number: Master Builder.' },
+        { num: '33', name: 'Thirty-Three', desc: 'Master Number: Master Teacher.' }
+      ];
+
+      const zodiacRing = document.getElementById('zodiacRing');
+      const numberRing = document.getElementById('numberRing');
+      const container = document.getElementById('astroContainer');
+      const rTitle = document.getElementById('readoutTitle');
+      const rValue = document.getElementById('readoutValue');
+      const rDesc = document.getElementById('readoutDesc');
+      const canvas = document.getElementById('laserCanvas');
+      const ctx = canvas.getContext('2d');
+
+      let autoCycleInterval;
+      let isHovering = false;
+
+      function resizeCanvas() {
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      function drawLineToCenter(nodeEl, color) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Get container rect to calculate relative center
+        const containerRect = container.getBoundingClientRect();
+        const centerX = containerRect.width / 2;
+        const centerY = containerRect.height / 2;
+
+        // Get node rect to calculate its current absolute center
+        const nodeRect = nodeEl.getBoundingClientRect();
+        const nodeX = nodeRect.left - containerRect.left + (nodeRect.width / 2);
+        const nodeY = nodeRect.top - containerRect.top + (nodeRect.height / 2);
+
+        ctx.beginPath();
+        ctx.moveTo(nodeX, nodeY);
+        ctx.lineTo(centerX, centerY);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]); // Dashed laser line
+        ctx.stroke();
+
+        // Draw glowing dot at node connection point
+        ctx.beginPath();
+        ctx.arc(nodeX, nodeY, 4, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+
+      function clearLine() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function generateNodes(data, parentElement, radiusPct, cssClass, isCounterClockwise) {
+        const count = data.length;
+        data.forEach((item, index) => {
+          const angle = (index * (360 / count) - 90) * (Math.PI / 180);
+          // Use percentages for positioning so it scales with container
+          const x = 50 + (radiusPct * Math.cos(angle));
+          const y = 50 + (radiusPct * Math.sin(angle));
+
+          const node = document.createElement('div');
+          node.className = `node ${cssClass}`;
+          node.innerHTML = item.symbol || item.num;
+          node.style.left = `${x}%`;
+          node.style.top = `${y}%`;
+
+          if (item.color) {
+            node.style.setProperty('#00f0ff', item.color); // override for zodiac
+          }
+
+          // Hover Events
+          node.addEventListener('mouseenter', () => {
+            isHovering = true;
+            container.classList.add('paused');
+            clearInterval(autoCycleInterval);
+
+            const displayColor = item.color || '#e2b714';
+
+            rTitle.textContent = item.symbol ? 'Zodiac Sign' : 'Numerology';
+            rValue.textContent = item.name;
+            rValue.style.color = displayColor;
+            rValue.style.textShadow = `0 0 10px ${displayColor}`;
+            rDesc.textContent = item.desc;
+
+            // Animation frame delay ensures DOM bounds are updated before drawing
+            requestAnimationFrame(() => {
+              drawLineToCenter(node, displayColor);
+            });
+          });
+
+          node.addEventListener('mouseleave', () => {
+            isHovering = false;
+            container.classList.remove('paused');
+            clearLine();
+            rValue.style.color = '#fff';
+            rValue.style.textShadow = '0 0 8px #00f0ff';
+            startAutoCycle();
+          });
+
+          parentElement.appendChild(node);
+        });
+      }
+
+      // Outer ring radius is ~50%, but we use 50 inside the 100% container calculation
+      generateNodes(zodiacData, zodiacRing, 50, 'node-zodiac');
+      // Inner ring is 65% of the outer, so radius is ~32.5% relative to the main container
+      generateNodes(numerologyData, numberRing, 50, 'node-number');
+
+      function updateCenterRandomly() {
+        if (isHovering) return;
+
+        const useZodiac = Math.random() > 0.5;
+        let data, type, color;
+
+        if (useZodiac) {
+          const idx = Math.floor(Math.random() * zodiacData.length);
+          data = zodiacData[idx];
+          type = "Calculating Aspect";
+          color = data.color;
+          rValue.innerHTML = `${data.symbol} ${data.name}`;
+        } else {
+          const idx = Math.floor(Math.random() * numerologyData.length);
+          data = numerologyData[idx];
+          type = "Path Vibration";
+          color = '#e2b714';
+          rValue.innerHTML = `${data.num} : ${data.name}`;
+        }
+
+        rTitle.textContent = type;
+        rValue.style.color = color;
+        rValue.style.textShadow = `0 0 8px ${color}`;
+        rDesc.textContent = data.desc;
+      }
+
+      function startAutoCycle() {
+        // Initial update
+        updateCenterRandomly();
+        // Cycle every 3 seconds to simulate computing data
+        autoCycleInterval = setInterval(updateCenterRandomly, 3000);
+      }
+
+      startAutoCycle();
+    });
+  </script>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Bootstrap validation
+      if (!this.checkValidity()) {
+        e.stopPropagation();
+        this.classList.add("was-validated");
+        return;
+      }
+
+      // Get form values
+      const fullName = document.getElementById("fullName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const service = document.getElementById("service").value;
+      const dob = document.getElementById("dob").value;
+      const tob = document.getElementById("tob").value || "Not provided";
+      const pob = document.getElementById("pob").value.trim() || "Not provided";
+      const message = document.getElementById("message").value.trim() || "No additional message";
+
+      // WhatsApp number - replace with actual number
+      const whatsappNumber = "917568075089";
+
+      // Create WhatsApp message
+      const whatsappMessage =
+        `*New Appointment Request*
+
+*Full Name:* ${fullName}
+*Phone:* ${phone}
+*Email:* ${email}
+
+*Reading:* ${service}
+
+*Date of Birth:* ${dob}
+*Time of Birth:* ${tob}
+*Place of Birth:* ${pob}
+
+*Additional Information:*
+${message}`;
+
+      // Encode message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+
+      // WhatsApp URL
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      // Open WhatsApp
+      window.open(whatsappURL, "_blank");
+
+      // Optional status message
+      document.getElementById("formStatus").textContent = "Opening WhatsApp...";
+
+      // Optional: reset form
+      this.reset();
+      this.classList.remove("was-validated");
+    });
+  </script>
+</body>
+
+</html>

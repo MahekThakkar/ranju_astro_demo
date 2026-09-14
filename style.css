@@ -1,0 +1,1105 @@
+/* =========================================================
+   Ranju Singhal — Vedic Astrology & Numerology
+   Design tokens
+   ========================================================= */
+:root {
+  --bg-deep: #14132B;
+  /* base night-sky ink */
+  --bg-panel: #1D1B3E;
+  /* alternating panel, slightly lifted */
+  --bg-panel-2: #211E45;
+  --gold: #C99A3E;
+  /* muted marigold */
+  --gold-soft: #E4C374;
+  --sindoor: #B8433A;
+  /* deep vermilion, used sparingly */
+  --ivory: #F3ECDC;
+  --ivory-dim: #DCD3BC;
+  --muted: #A79FC7;
+  /* lavender-grey secondary text on dark */
+  --line: rgba(201, 154, 62, 0.22);
+  --line-soft: rgba(243, 236, 220, 0.14);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html,
+body {
+  background: var(--bg-deep);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.brand-text {
+  font-family: var(--font-display);
+  color: var(--ivory);
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--gold-soft);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.kicker::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.9rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 500;
+  max-width: 22ch;
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+}
+
+.lede {
+  color: var(--ivory-dim);
+  max-width: 62ch;
+  line-height: 1.7;
+  font-size: 1.02rem;
+  margin-bottom: 1.2rem;
+}
+
+.section {
+  padding: 6.5rem 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.about {
+  /* background: var(--bg-panel); */
+  background: linear-gradient(45deg, black, #0d28c0b3);
+}
+
+.services {
+  background: var(--bg-deep);
+}
+
+.process {
+  background: var(--bg-panel);
+}
+
+.testimonials {
+  background: var(--bg-deep);
+}
+
+.packages {
+  background: var(--bg-panel);
+}
+
+.contact {
+  background: var(--bg-deep);
+}
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+.site-nav {
+  background: rgba(20, 19, 43, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s ease, background-color .3s ease;
+  padding: 0.1rem 0;
+}
+
+.site-nav.scrolled {
+  border-bottom-color: var(--line);
+  background: rgba(20, 19, 43, 0.97);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-mark {
+  color: var(--gold);
+}
+
+.brand-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ivory);
+}
+
+.nav-link {
+  color: var(--muted) !important;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.85rem !important;
+  transition: color .2s ease;
+}
+
+.nav-link:hover {
+  color: var(--ivory) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--line);
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23E4C374' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.btn-book {
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  color: var(--bg-deep);
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2px;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+
+.btn-book:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold-soft);
+  color: var(--bg-deep);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  font-weight: 500;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2px;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-soft);
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero {
+  padding: 10rem 0 5rem;
+  background:
+    radial-gradient(ellipse 900px 600px at 85% 10%, rgba(201, 154, 62, 0.08), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 10% 90%, rgba(184, 67, 58, 0.07), transparent 60%),
+    var(--bg-deep);
+  position: relative;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.14;
+  margin-bottom: 1.4rem;
+  max-width: 14ch;
+}
+
+.hero-sub {
+  color: var(--ivory-dim);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  max-width: 48ch;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.4rem;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 1.6rem;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--gold-soft);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Birth chart wheel */
+.wheel-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.chart-wheel {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  color: var(--gold);
+  filter: drop-shadow(0 0 40px rgba(201, 154, 62, 0.10));
+}
+
+.ring-outer,
+.ring-mid,
+.ring-inner {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1;
+  opacity: 0.55;
+}
+
+.ring-inner {
+  opacity: 0.8;
+}
+
+.wheel-spin {
+  transform-origin: 240px 240px;
+  animation: spin 140s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glyphs text {
+  fill: var(--ivory-dim);
+  font-family: var(--font-display);
+  font-size: 15px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.center-dot {
+  fill: var(--sindoor);
+}
+
+/* =========================================================
+   About
+   ========================================================= */
+.portrait-frame {
+  border: 1px solid var(--line);
+  padding: 1.2rem;
+  max-width: 340px;
+}
+
+.portrait-placeholder {
+  aspect-ratio: 5/6;
+  border: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--gold-soft);
+  padding-bottom: 1.4rem;
+  background: linear-gradient(180deg, transparent, rgba(201, 154, 62, 0.05));
+}
+
+.portrait-placeholder svg {
+  width: 55%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.portrait-placeholder span {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ivory);
+}
+
+.portrait-caption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.8rem 0 0;
+  text-align: center;
+}
+
+.credential-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.credential-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.credential-list i {
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin-top: 0.2rem;
+  flex: 0 0 auto;
+}
+
+.credential-list strong {
+  display: block;
+  color: var(--ivory);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.credential-list span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   Services (list, not identical cards)
+   ========================================================= */
+.service-list {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 1.6rem;
+  align-items: start;
+  padding: 1.9rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-soft);
+  font-size: 1.4rem;
+}
+
+.service-body h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.service-body p {
+  color: var(--ivory-dim);
+  max-width: 60ch;
+  margin: 0;
+  line-height: 1.65;
+  font-size: 0.98rem;
+}
+
+.service-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  padding-top: 0.3rem;
+  text-align: right;
+}
+
+@media (max-width:767px) {
+  .service-row {
+    grid-template-columns: 48px 1fr;
+    grid-template-areas: "icon title" "body body" "meta meta";
+  }
+
+  .service-icon {
+    grid-area: icon;
+    width: 48px;
+    height: 48px;
+  }
+
+  .service-body {
+    grid-area: body;
+  }
+
+  .service-row h3 {
+    grid-area: title;
+    align-self: center;
+    margin: 0;
+  }
+
+  .service-meta {
+    grid-area: meta;
+    text-align: left;
+    margin-top: 0.6rem;
+  }
+}
+
+/* =========================================================
+   Process
+   ========================================================= */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 3rem;
+  border-top: 1px solid var(--gold);
+}
+
+.step {
+  padding: 1.8rem 1.6rem 0;
+  border-right: 1px solid var(--line-soft);
+  position: relative;
+}
+
+.step:last-child {
+  border-right: none;
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.step h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.step p {
+  color: var(--ivory-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width:991px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .step:nth-child(2) {
+    border-right: none;
+  }
+}
+
+@media (max-width:575px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    border-right: none;
+    border-bottom: 1px solid var(--line-soft);
+    padding-bottom: 1.6rem;
+  }
+}
+
+/* =========================================================
+   Testimonials
+   ========================================================= */
+.testimonial-carousel {
+  max-width: 760px;
+  margin: 3rem auto 0;
+  padding: 0 3rem;
+}
+
+.testimonial-carousel blockquote {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--ivory);
+  line-height: 1.5;
+  min-height: 180px;
+}
+
+.testimonial-carousel blockquote p::before {
+  content: "“";
+}
+
+.testimonial-carousel blockquote p::after {
+  content: "”";
+}
+
+.testimonial-carousel footer {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--gold-soft);
+  margin-top: 1.2rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 3rem;
+  opacity: 1;
+}
+
+.carousel-arrow {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-soft);
+  border-radius: 50%;
+}
+
+.carousel-indicators {
+  position: static;
+  margin-top: 2rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+  opacity: 0.5;
+  border: none;
+}
+
+.carousel-indicators .active {
+  background: var(--gold);
+  opacity: 1;
+}
+
+/* =========================================================
+   Packages table
+   ========================================================= */
+.package-table-wrap {
+  margin-top: 2.5rem;
+}
+
+.package-table {
+  --bs-table-bg: transparent;
+  color: var(--ivory);
+  border-top: 1px solid var(--gold);
+}
+
+.package-table thead th {
+  color: var(--gold-soft);
+  font-weight: 500;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.85rem;
+  padding: 0.9rem 0.75rem;
+}
+
+.package-table tbody td {
+  border-bottom: 1px solid var(--line-soft);
+  padding: 1.2rem 0.75rem;
+  vertical-align: middle;
+  color: wheat;
+}
+
+.package-table tbody tr td:first-child {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ivory);
+}
+
+.package-table tbody td:nth-child(2) {
+  color: var(--ivory-dim);
+  font-size: 0.92rem;
+}
+
+.link-book {
+  color: var(--gold-soft);
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.link-book i {
+  font-size: 0.8rem;
+  margin-left: 0.15rem;
+}
+
+.package-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 1.2rem;
+}
+
+/* =========================================================
+   Contact
+   ========================================================= */
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.7rem 0;
+  color: var(--ivory-dim);
+  font-size: 0.95rem;
+}
+
+.contact-info i {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-top: 0.15rem;
+}
+
+.social-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-row a {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-soft);
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.social-row a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.booking-form label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.booking-form .form-control,
+.booking-form .form-select {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  border-radius: 2px;
+  padding: 0.65rem 0.85rem;
+}
+
+.booking-form .form-control:focus,
+.booking-form .form-select:focus {
+  background: var(--bg-panel-2);
+  border-color: var(--gold);
+  color: var(--ivory);
+  box-shadow: 0 0 0 3px rgba(201, 154, 62, 0.15);
+}
+
+.booking-form .form-control::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.booking-form select option {
+  background: var(--bg-deep);
+  color: var(--ivory);
+}
+
+.form-status {
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  color: var(--gold-soft);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+  background: #100F26;
+  padding: 4.5rem 0 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer h4 {
+  font-family: var(--font-body);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  max-width: 34ch;
+  margin-top: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  color: var(--ivory-dim);
+  font-size: 0.92rem;
+  padding: 0.3rem 0;
+}
+
+.footer-links a {
+  color: var(--ivory-dim);
+}
+
+.footer-links a:hover {
+  color: var(--gold-soft);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--line-soft);
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+
+.glass {
+  background: rgb(12 13 44 / 46%);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgb(71 152 239 / 55%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Container designed to fit gracefully within any column (like col-6) */
+.astrolabe-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  /* Tech/Calculation feel */
+  background-color: transparent;
+  overflow: hidden;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.astrolabe-container {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+/* Outer Zodiac Ring */
+.ring-outer {
+  width: 100%;
+  height: 100%;
+  border-style: dashed;
+  animation: spin-clockwise 40s linear infinite;
+  box-shadow: 0 0 40px inset rgb(0 255 246)
+}
+
+/* Inner Numerology Ring */
+.ring-inner {
+  width: 65%;
+  height: 65%;
+  border: 2px solid rgba(226, 183, 20, 0.3);
+  animation: spin-counter-clockwise 30s linear infinite;
+  box-shadow: 0 0 20px rgba(226, 183, 20, 0.1);
+}
+
+.node {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  margin-left: -18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a24;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  z-index: 10;
+}
+
+/* Keep nodes upright while their parent ring rotates */
+.node-zodiac {
+  color: #00f0ff;
+  animation: counter-spin-clockwise 40s linear infinite;
+}
+
+.node-number {
+  color: #e2b714;
+  font-family: sans-serif;
+  animation: counter-spin-counter-clockwise 30s linear infinite;
+  border-color: rgba(226, 183, 20, 0.4);
+}
+
+.node:hover {
+  transform: scale(1.4);
+  z-index: 20;
+  box-shadow: 0 0 15px currentColor;
+  border-color: currentColor;
+  background: #000;
+}
+
+.center-core {
+  position: absolute;
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, rgba(26, 26, 36, 1) 70%);
+  border: 2px solid #00f0ff;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+  overflow: hidden;
+}
+
+/* Radar sweep effect */
+.center-core::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0deg, transparent 70%, rgba(0, 240, 255, 0.4) 100%);
+  transform-origin: 0 0;
+  animation: spin-clockwise 4s linear infinite;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.readout-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  z-index: 2;
+}
+
+.readout-value {
+  font-size: 1.8rem;
+  color: #fff;
+  text-shadow: 0 0 8px #00f0ff;
+  margin: 0;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.readout-desc {
+  font-size: 0.65rem;
+  color: #ccc;
+  margin-top: 5px;
+  line-height: 1.2;
+  z-index: 2;
+  font-family: sans-serif;
+  max-width: 90%;
+}
+
+@keyframes spin-clockwise {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-counter-clockwise {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes counter-spin-clockwise {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes counter-spin-counter-clockwise {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pause rings on hover */
+.astrolabe-container.paused .ring-outer,
+.astrolabe-container.paused .ring-inner,
+.astrolabe-container.paused .node-zodiac,
+.astrolabe-container.paused .node-number,
+.astrolabe-container.paused .center-core::before {
+  animation-play-state: paused !important;
+}
+
+/* Connecting laser line canvas */
+#laserCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+
+  .btn-whatsapp-pulse {
+	background: #25d366;
+	color: white;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 0;
+	height: 0;
+	padding: 35px;
+	text-decoration: none;
+	border-radius: 50%;
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+	}
+	80% {
+		box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+	}
+}
+
+.btn-whatsapp-pulse-border {
+	bottom: 120px;
+	right: 20px;
+	animation-play-state: paused;
+}
+
+.btn-whatsapp-pulse-border::before {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	padding: 25px;
+	border: 5px solid #25d366;
+	opacity: 0.75;
+	animation-name: pulse-border;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes pulse-border {
+	0% {
+		padding: 25px;
+		opacity: 0.75;
+	}
+	75% {
+		padding: 50px;
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.widget ul li a:hover{
+  color: yellow !important; 
+}
